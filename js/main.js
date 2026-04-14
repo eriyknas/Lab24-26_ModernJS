@@ -453,3 +453,196 @@
 //     }
 // }
 // createPost();
+
+
+// console.log("Optional Chaining");
+// const user1 = {
+//     name: "Андрей",
+//     address: {
+//         city: "Волжский",
+//         street: "Пушкина"
+//     }
+// };
+
+// const user2 = {
+//     name: "Дмитрий"
+// };
+
+// const city1 = user2.address && user2.address.city;
+// console.log("Город (старый способ):", city1);
+
+// const city2 = user2.address?.city;
+// console.log("Город (новый способ):", city2);
+
+// const street = user1.address?.street;
+// console.log("Улица:", street);
+
+// const admin = {
+//     name: "Администратор",
+//     permissions: {
+//         canDelete: () => true,
+//     },
+// };
+
+// const guest = {
+//     name: "Гость",
+// };
+
+// console.log("Админ может удалять?", admin.permissions?.canDelete?.());
+// console.log("Гость может удалять?", guest.permissions?.canDelete?.());
+
+// const company = {
+//     name: "Tech Corp",
+//     employees: [
+//         { name: "Надежда", role: "Developer" },
+//         { name: "Анна", role: "Designer" },
+//     ],
+// };
+
+// const startup = {
+//     name: "New Startup"
+// };
+
+// console.log("Первый сотрудник:", company.employees?.[0]?.name);
+// console.log("Первый сотрудник стартапа:", startup.employees?.[0]?.name);
+
+// console.log("Nullish Coalescing");
+
+// const value1 = 0;
+// const value2 = "";
+// const value3 = false;
+// const value4 = null;
+// const value5 = undefined;
+
+// console.log('value1 || "default":', value1 || "default");
+// console.log('value2 || "default":', value2 || "default");
+// console.log('value3 || "default":', value3 || "default");
+
+// console.log('value1 ?? "default":', value1 ?? "default");
+// console.log('value2 ?? "default":', value2 ?? "default");
+// console.log('value3 ?? "default":', value3 ?? "default");
+// console.log('value4 ?? "default":', value4 ?? "default");
+// console.log('value5 ?? "default":', value5 ?? "default");
+
+// function displayUserSettings(settings) {
+//     const theme = settings?.theme ?? "light";
+//     const fontSize = settings?.fontSize ?? 14;
+//     const notifications = settings?.notifications ?? true;
+    
+//     console.log("Настройки пользователя:");
+//     console.log("Тема:", theme);
+//     console.log("Размер шрифта:", fontSize);
+//     console.log("Уведомления:", notifications);
+// }
+// displayUserSettings({ theme: "dark", fontSize: 16 });
+
+// displayUserSettings({ notifications: false });
+
+// displayUserSettings({});
+
+// const apiResponse = {
+//     data: {
+//         user: {
+//             profile: {
+//                 settings: {
+//                     language: "ru",
+//                 },
+//             },
+//         },
+//     },
+// };
+
+// const language = apiResponse?.data?.user?.profile?.settings?.language ?? "en";
+// console.log("Язык:", language);
+
+// const emptyResponse = {};
+// const defaultLanguage = emptyResponse?.data?.user?.profile?.settings?.language ?? "en";
+// console.log("Язык по умолчанию:", defaultLanguage);
+
+// console.log("Практическое задание");
+
+// const fullOrder = {
+//     orderId: "1",
+//     customer: {
+//         firstName: "Анастасия",
+//         lastName: "Чешуина",
+//         email: "anastasia9cheshuina@yandex.ru",
+//         phone: "+7-904-433-7151"
+//     },
+//     shipping: {
+//         address: "ул. Мира, д. 28",
+//         city: "Волжский",
+//         postalCode: "101000",
+//         deliveryMethod: "Курьер"
+//     },
+//     payment: {
+//         method: "Карта",
+//         status: "Оплачен"
+//     },
+//     items: [
+//         { name: "Ноутбук", quantity: 1, price: 50000 },
+//         { name: "Мышь", quantity: 2, price: 1500 }
+//     ]
+// };
+
+// const partialOrder = {
+//     orderId: "2",
+//     customer: {
+//         firstName: "Мария"
+//     },
+//     payment: {
+//     }
+// };
+
+// function displayOrder(order) {
+//     console.log(`\nЗаказ ${order.orderId ?? "Без номера"}`);
+//     const firstName = order.customer?.firstName ?? "Не указано";
+//     const lastName = order.customer?.lastName ?? "";
+//     const fullName = lastName ? `${firstName} ${lastName}` : firstName;
+    
+//     const email = order.customer?.email ?? "email не указан";
+//     const phone = order.customer?.phone ?? "телефон не указан";
+    
+//     const address = order.shipping?.address ?? "адрес не указан";
+//     const city = order.shipping?.city ?? "город не указан";
+//     const deliveryMethod = order.shipping?.deliveryMethod ?? "Самовывоз";
+    
+//     const paymentMethod = order.payment?.method ?? "Не выбран";
+//     const paymentStatus = order.payment?.status ?? "Не оплачен";
+
+//     let totalAmount = 0;
+//     if (order.items && order.items.length > 0) {
+//         order.items.forEach(item => {
+//             totalAmount += (item.quantity ?? 1) * (item.price ?? 0);
+//         });
+//     }
+    
+//     console.log("Клиент:");
+//     console.log(`Имя: ${fullName}`);
+//     console.log(`Email: ${email}`);
+//     console.log(`Телефон: ${phone}`);
+    
+//     console.log("\nДоставка:");
+//     console.log(`Адрес: ${address}, ${city}`);
+//     console.log(`Способ: ${deliveryMethod}`);
+    
+//     console.log("\nОплата:");
+//     console.log(`Метод: ${paymentMethod}`);
+//     console.log(`Статус: ${paymentStatus}`);
+    
+//     console.log("\nТовары:");
+//     if (order.items && order.items.length > 0) {
+//         order.items.forEach((item, index) => {
+//             const quantity = item.quantity ?? 1;
+//             const price = item.price ?? 0;
+//             console.log(`${index + 1}. ${item.name} x${quantity} = ${quantity * price}₽`);
+//         });
+//         console.log(`Итого: ${totalAmount}₽`);
+//     } else {
+//         console.log("Корзина пуста");
+//     }
+// }
+
+// displayOrder(fullOrder);
+// displayOrder(partialOrder);
+// displayOrder({});
