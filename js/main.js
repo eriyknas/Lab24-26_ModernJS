@@ -136,31 +136,50 @@
 // console.log("Остальные числа:", rest);
 
 
-console.log("Практическое задание");
+// console.log("Практическое задание");
 
-const array1 = [1, 3, 5, 7, 9];
-const array2 = [2, 4, 6, 8, 10];
+// const array1 = [1, 3, 5, 7, 9];
+// const array2 = [2, 4, 6, 8, 10];
 
-const mergedArray = [...array1, ...array2];
-console.log("Объединенные массивы:", mergedArray);
+// const mergedArray = [...array1, ...array2];
+// console.log("Объединенные массивы:", mergedArray);
 
-function findMax(...numbers) {
-    if (numbers.length === 0) return null;
-    return Math.max(...numbers);
-}
+// function findMax(...numbers) {
+//     if (numbers.length === 0) return null;
+//     return Math.max(...numbers);
+// }
 
-console.log("Максимум из 5, 12, 8, 3:", findMax(5, 12, 8, 3));
-console.log("Максимум из 100, 250, 175:", findMax(100, 250, 175));
+// console.log("Максимум из 5, 12, 8, 3:", findMax(5, 12, 8, 3));
+// console.log("Максимум из 100, 250, 175:", findMax(100, 250, 175));
 
-const car = {
-    brand: "Tesla",
-    model: "Model 3"
-};
+// const car = {
+//     brand: "Tesla",
+//     model: "Model 3"
+// };
 
-const specs = {
-    range: "500km",
-    acceleration: "3.3s"
-};
+// const specs = {
+//     range: "500km",
+//     acceleration: "3.3s"
+// };
 
-const fullCar = { ...car, ...specs };
-console.log("Объединенный объект автомобиля:", fullCar);
+// const fullCar = { ...car, ...specs };
+// console.log("Объединенный объект автомобиля:", fullCar);
+
+// import { greet, add, PI } from './utils.js';
+
+// console.log("Модули");
+// console.log(greet("Алексей"));
+// console.log("5 + 3 =", add(5, 3));
+// console.log("Значение PI:", PI);
+
+// import { multiply as умножить } from './utils.js';
+// console.log("4 * 7 =", умножить(4, 7));
+
+// import * as Utils from "./utils.js";
+// console.log(Utils.greet("Мария"));
+// console.log("Умножение:", Utils.multiply(3, 9));
+
+// import { square, cube, E } from './math.js';
+// console.log("Квадрат числа 7:", square(7));
+// console.log("Куб числа 5:", cube(5));
+// console.log("Число E =", E);
